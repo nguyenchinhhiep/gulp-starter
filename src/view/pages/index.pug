@@ -1,10 +1,7 @@
 extends ../layouts/layout.pug
 block main-content
-    .layout-content
-        section#header
-            include ./../partials/header.pug
-            include ./../partials/navigation.pug
-        main#main-content
-            include ./../partials/content.pug
-        section#footer
-            include ./../partials/footer.pug
+    .layout-container
+        include ./../partials/header.pug
+        include ./../partials/navigation.pug
+        include ./../partials/content.pug
+        include ./../partials/footer.pug
