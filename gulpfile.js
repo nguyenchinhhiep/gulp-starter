@@ -42,7 +42,7 @@ const assetsTask = function () {
     .pipe(dest('dist/assets/'))
 }
 
-const delTask = function(){
+const delTask = async function(){
     return del.sync('dist');
 }
 
@@ -66,4 +66,4 @@ exports.assetsTask = assetsTask;
 exports.watchTask = watchTask;
 exports.delTask = delTask;
 
-exports.default = series(parallel(jsTask, sassTask, pugTask, assetsTask),watchTask, delTask);
+exports.default = series(delTask, parallel(jsTask, sassTask, pugTask, assetsTask),watchTask);
