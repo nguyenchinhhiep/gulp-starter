@@ -3,6 +3,10 @@ const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const pug = require('gulp-pug');
 const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const del = require('del');
+const runSequence = require('run-sequence');
+const reload = browserSync.reload;
 
 const sassTask = function () {
     return src('src/sass/main.scss')
@@ -12,6 +16,9 @@ const sassTask = function () {
             cascade: false
         }))
         .pipe(dest('dist/css'))
+        .pipe(browserSync.reload({
+            stream: true
+          }))
 };
 
 const jsTask = function () {
@@ -30,13 +37,33 @@ const pugTask = function () {
     .pipe(dest('dist/html'))
 };
 
+const assetsTask = function () {
+    return src('src/assets/**/*')
+    .pipe(dest('dist/assets/'))
+}
+
+const delTask = function(){
+    return del.sync('dist');
+}
+
 function watchTask() {
-    watch(['src/js/**/*.js', 'src/sass/**/*.scss', 'src/view/**/*.pug'],
-        parallel(sassTask, jsTask, pugTask))
+    browserSync.init({
+        server: {
+          baseDir: 'dist/html'
+        },
+      })
+    watch(['src/js/**/*.js', 'src/sass/**/*.scss', 'src/view/**/*.pug', 'src/assets/**/*'],
+        parallel(sassTask, jsTask, pugTask, assetsTask));
+    watch('./dist/html/*.html').on('change', reload);
+    watch('./dist/js/*.js').on('change', reload);
+    watch('.dist/assets/**/*').on('change', reload);
 };
 
 exports.sassTask = sassTask;
 exports.jsTask = jsTask;
 exports.pugTask = pugTask;
+exports.assetsTask = assetsTask;
 exports.watchTask = watchTask;
-exports.default = series(parallel(jsTask, sassTask, pugTask),watchTask);
+exports.delTask = delTask;
+
+exports.default = series(parallel(jsTask, sassTask, pugTask, assetsTask),watchTask, delTask);

@@ -9,17 +9,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
+    "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-watch": "^5.0.1",
-    "gulp-pug": "^4.0.1",
+    "node-sass": "^4.13.1",
     "pug": "^2.0.3",
     "pug-cli": "^1.0.0-alpha6",
-    "node-sass": "^4.13.1"
+    "run-sequence": "^2.2.1"
   },
   "dependencies": {}
 }
