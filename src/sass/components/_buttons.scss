@@ -1,3 +1,86 @@
 //  Author: Nguyen Chinh Hiep
 //  Email: nguyenchinhhiep95@gmail.com
 //  Facebook: facebook.com/hiepnguyen1003
+
+.btn {
+    font-family: 'Muli', sans-serif;
+    padding: 8px 20px;
+    outline: none;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: $primary-active !important;
+    border: 1px solid $primary-active !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 5px 0 rgba(0, 201, 167, 0.3);
+
+    &:hover {
+        background-color: #00967d !important;
+        border-color: #00967d !important;
+        color: #ffffff !important;
+    }
+}
+
+.btn-outline-primary {
+    border: 1px solid $primary-active;
+    color: $primary-active;
+    background-color: transparent;
+
+    &:hover {
+        box-shadow: 0 3px 5px 0 rgba(0, 201, 167, 0.3);
+        background-color: $primary-active;
+        color: #fff;
+        border-color: $primary-active;
+    }
+}
+
+.btn-play-video {
+    font-size: 14px;
+    letter-spacing: .5px;
+    
+    i {
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background-color: $primary-active;
+        border-radius: 50%;
+        line-height: 40px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        border-color: $primary-active;
+        transition: all ease .3s;
+        margin: 5px 5px 0 0;
+        font-weight: bold;
+        
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: -8px;
+            right: -8px;
+            bottom: -8px;
+            left: -8px;
+            border-radius: 50%;
+            border: 1px solid #eef3fc;
+            animation: playButton 1s ease-out infinite;
+        }
+    }
+
+    &:hover {
+
+        > i {
+            background-color: #00967d !important;
+            border-color: #00967d !important;
+        }
+    }
+
+}

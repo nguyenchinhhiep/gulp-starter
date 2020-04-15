@@ -4,23 +4,26 @@
 
 // 1. Configuration and helpers
 @import "abstracts/variables", "abstracts/functions", "abstracts/mixins",
-  "abstracts/colors", "abstracts/fonts";
+  "abstracts/colors", "abstracts/fonts","abstracts/grid";
 
 // 2. Vendors
 @import "vendors/slick-slider";
 
 // 3. Base stuff
-@import "base/reset", "base/typography", "base/common", "base/responsives";
+@import "base/reset", "base/typography", "base/common", "base/responsives", "base/animations", "base/utilities";
 
 // 4. Layout-related sections
 @import "layout/layout", "layout/header", "layout/footer",
   "layout/sidebar", "layout/navigation";
 
 // 5. Components
-@import "components/buttons";
+@import "components/buttons", "components/video-overlay";
 
 // 6. Page-specific styles
+@import "partials/hero";
+
+// 7. Page-specific styles
 @import "pages/index";
 
-// 7. Themes
+// 8. Themes
 @import "themes/default";
