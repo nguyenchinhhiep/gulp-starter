@@ -9,7 +9,7 @@ const wait = require('gulp-wait');
 const reload = browserSync.reload;
 
 const sassTask = function() {
-  return src("src/sass/main.scss")
+  return src("src/scss/main.scss")
     .pipe(wait(500))
     .pipe(sass().on("error", sass.logError))
     .pipe(

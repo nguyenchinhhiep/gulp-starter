@@ -1,9 +1,0 @@
-//  Author: Nguyen Chinh Hiep
-//  Email: nguyenchinhhiep95@gmail.com
-//  Facebook: facebook.com/hiepnguyen1003
-
-@mixin  flex-box($param1, $param2) {
-    display: flex;
-    justify-content: #{$param1};
-    align-items: #{$param2};
-}
